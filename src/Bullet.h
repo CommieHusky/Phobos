@@ -50,9 +50,13 @@ class Bullet {
 		string spritePath;	//sprite image file path
 		ofImage sprite;
 
+		double origin_x, origin_y; //polar origin coordinates
 		double x, y;		//position
 		double v_x, v_y;	//cartesian velocity
 		double v_r, v_t;	//polar velocity
+		double a_x, a_y;
+		double a_r, a_t;
+		double r;			//radial position from origin
 		double t;			//firing angle (for polar defined patterns)
 
 		double radius;		//hitbox radius
@@ -61,6 +65,7 @@ class Bullet {
 
 		void init(double x, double y, double radius, string path);
 		void setvelocity(double v_x, double v_y, double v_r, double v_t, double t);
+		void setaccel(double a_x, double a_y, double a_r, double a_t);
 		void updateC();
 		void updateP();
 		void draw();
