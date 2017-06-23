@@ -1,8 +1,8 @@
 ﻿#include "ofApp.h"
 #include "ofMath.h"'
 
-//in the near future we should have seperate class files for each individual pattern I think
-//this pattern is in the ofApp file now just for testing purposes
+//in the near future we should have seperate class files for each individual pattern or something like that
+//eternal meek is in the ofApp file now just for testing purposes
 
 //we will probably have to load patterns from seperate script files entirely
 
@@ -13,14 +13,16 @@ Bullet b;					//reference bullet
 void ofApp::setup(){
 	ofSetFrameRate(60);		//60fps
 
-	b.init(512, 162, 0, "test_images/mentos.png");
+	b.init(0, "test_images/mentos.png");
+	b.setorigin(512, 200);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofBackground(0);
 
-	b.setvelocity(0, 0, ofRandom(300, 1000), 0, ofRandom(0, TWO_PI));
+	b.setpos(512, 200, 0, ofRandom(0, TWO_PI));
+	b.setvelocity(0, 0, ofRandom(300, 1000), 0);
 	b.setspawntime(ofGetElapsedTimef());
 	pattern.push_back(b);												//add unique """instance""" of b to vector
 

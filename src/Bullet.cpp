@@ -2,11 +2,7 @@
 
 Bullet::Bullet() {}
 
-void Bullet::init(double x, double y, double radius, string path) {
-	this->x = x;
-	this->y = y;
-	this->origin_x = x;
-	this->origin_y = y;
+void Bullet::init(double radius, string path) {
 
 	this->radius = radius;
 
@@ -14,12 +10,23 @@ void Bullet::init(double x, double y, double radius, string path) {
 	sprite.load(spritePath);
 }
 
-void Bullet::setvelocity(double v_x, double v_y, double v_r, double v_t, double t) {
+void Bullet::setorigin(double origin_x, double origin_y) {
+	this->origin_x = origin_x;
+	this->origin_y = origin_y;
+}
+
+void Bullet::setpos(double x, double y, double r, double t) {
+	this->x = x;
+	this->y = y;
+	this->r = r;
+	this->t = t;
+}
+
+void Bullet::setvelocity(double v_x, double v_y, double v_r, double v_t) {
 	this->v_x = v_x;
 	this->v_y = v_y;
 	this->v_r = v_r;
 	this->v_t = v_t;
-	this->t = t;
 }
 
 void Bullet::setaccel(double a_x, double a_y, double a_r, double a_t) {
@@ -35,10 +42,10 @@ void Bullet::draw() {
 
 void Bullet::updateC() {
 	v_x += ofGetLastFrameTime() * a_x;
-	v_y += ofGetLastFrameTime() * a_y;
+	v_y += ofGetLastFrameTime() * a_y;		//dv = adt
 
 	x += ofGetLastFrameTime() * v_x;
-	y += ofGetLastFrameTime() * v_y;
+	y += ofGetLastFrameTime() * v_y;		//dr = vdt
 
 }
 
@@ -49,8 +56,8 @@ void Bullet::updateP() {
 	v_t += ofGetLastFrameTime() * a_t;
 
 
-	//x += ofGetLastFrameTime() * (v_r * cos(t) - r * sin(t) * v_t);
-	//y += ofGetLastFrameTime() * (v_r * sin(t) + r * cos(t) * v_t);
+	//x += ofGetLastFrameTime() * (v_r * cos(t) - r * sin(t) * v_t);	//dx = cosƒÆ*dr - rsinƒÆ*dƒÆ
+	//y += ofGetLastFrameTime() * (v_r * sin(t) + r * cos(t) * v_t);	//dy = sinƒÆ*dr + rcosƒÆ*dƒÆ
 
 	r += ofGetLastFrameTime() * v_r;
 	t += ofGetLastFrameTime() * v_t;
