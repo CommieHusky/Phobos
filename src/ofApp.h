@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "ofMain.h"
+#include "Bullet.h"
 
 class ofApp : public ofBaseApp{
 
