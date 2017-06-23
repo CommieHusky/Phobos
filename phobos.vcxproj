@@ -179,6 +179,8 @@
     <ClCompile Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\ErrorHandler.cpp" />
+    <ClCompile Include="src\GlobalObj.cpp" />
+    <ClCompile Include="src\InputHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
@@ -209,6 +211,9 @@
     <ClInclude Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS.hpp" />
     <ClInclude Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS_Types.hpp" />
     <ClInclude Include="src\Bullet.h" />
+    <ClInclude Include="src\Command.h" />
+    <ClInclude Include="src\GlobalObj.h" />
+    <ClInclude Include="src\InputHandler.h" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>
