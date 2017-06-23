@@ -7,20 +7,22 @@
 //we will probably have to load patterns from seperate script files entirely
 
 vector <Bullet> pattern;	//all bullets stored in this vector
+Bullet b;					//reference bullet
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetFrameRate(60);		//60fps
+
+	b.init(512, 162, 0, "test_images/mentos.png");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofBackground(0);
 
-	Bullet b;
-	b.init(512, 162, 0, "test_images/mentos.png");
-	b.setvelocity(0, 0, ofRandom(300, 1000), 0, ofRandom(0, TWO_PI));	//random firing angle and radial velocity
-	pattern.push_back(b);	//add bullet to vector
+	b.setvelocity(0, 0, ofRandom(300, 1000), 0, ofRandom(0, TWO_PI));
+	b.setspawntime(ofGetElapsedTimef());
+	pattern.push_back(b);												//add unique """instance""" of b to vector
 
 	for (int i = 0; i < pattern.size(); i++) {
 		pattern[i].updateP();
@@ -37,6 +39,7 @@ void ofApp::draw(){
 	for (int i = 0; i < pattern.size(); i++) {
 		pattern[i].draw();
 	}
+
 }
 
 //--------------------------------------------------------------

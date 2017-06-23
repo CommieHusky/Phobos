@@ -8,8 +8,6 @@ void Bullet::init(double x, double y, double radius, string path) {
 
 	this->radius = radius;
 
-	spawntime = ofGetElapsedTimef();
-
 	spritePath = path;
 	sprite.load(spritePath);
 }
@@ -39,4 +37,8 @@ void Bullet::updateP() {
 	x += ofGetLastFrameTime() * (v_r * cos(t) - r * sin(t) * v_t);
 	y += ofGetLastFrameTime() * (v_r * sin(t) + r * cos(t) * v_t);
 	t += ofGetLastFrameTime() * v_t;
+}
+
+void Bullet::setspawntime(double spawntime) {
+	this->spawntime = spawntime;
 }

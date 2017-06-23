@@ -64,5 +64,6 @@ class Bullet {
 		void updateC();
 		void updateP();
 		void draw();
+		void setspawntime(double spawntime);
 
 };
