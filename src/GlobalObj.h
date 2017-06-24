@@ -8,5 +8,5 @@ enum class Init {
 class GlobalObj {
 public:
 	void init(Init type);
-	void act();
+	void act(); //
 };
